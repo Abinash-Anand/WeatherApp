@@ -1,0 +1,20 @@
+ body {
+            background-color:rgba(66, 204, 254, 0.304);
+            color: #000;
+           align-content: center;
+        }
+.weather{
+    display: flex;
+    /* align-items: center; */
+    /* margin-left: 25%; */
+
+}
+span{
+    border: 1px solid black;
+    margin: 10px;
+    font-size: 2rem;
+}
+.week-days{
+    /* margin-left: 25%; */
+    margin-top: 50px;
+}
