@@ -4,74 +4,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>chai aur code</title>
+    <title>Weather App</title>
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-    <section>
-        <div class="weather">
-            <span class="day">Today's weather</span>
-            <img class="weather-icon" src="https://www.freeiconspng.com/thumbs/weather-icon-png/weather-icon-png-8.png"
-                alt="">
-            <span class="location">place</span>
-        </div>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Temperature</th>
-                    <th>Wind Speed</th>
-                    <th>Wind Direction</th>
-                    <th>Weather Code</th>
-                    <th>Is Day</th>
-                    <th>Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Add your weather data rows here -->
-                <tr>
-                    <td class="weather-data"></td>
-                    <td class="weather-data"> </td>
-                    <td class="weather-data"></td>
-                    <td class="weather-data"></td>
-                    <td class="weather-data"></td>
-                    <td class="weather-data"> </td>
-                </tr>
 
-                <!-- Add more rows as needed -->
-            </tbody>
-        </table>
-        <div class="week-days">
+    <section class="background">
 
-            <p class="weather-bar">🌥️Weather</p>
-            <span class="temperature">Temperature</span>
-            <span class="current-date"></span>
-            <span></span>
+        <!--Bootstrap search form-->
+
+        <!--Clouds-->
+
+        <!---Weather app layout--><img class="cloud-left" width="96" height="96"
+            src="https://img.icons8.com/fluency/96/clouds--v3.png" alt="clouds--v3" />
+        <div class="weather"> <img class="cloud-middle" width="96" height="96"
+                src="https://img.icons8.com/fluency/96/clouds--v3.png" alt="clouds--v3" /> <img class="cloud-right"
+                width="96" height="96" src="https://img.icons8.com/fluency/96/clouds--v3.png" alt="clouds--v3" />
+            <div class="search-bar">
+                <img width="30" height="30" src="https://img.icons8.com/ios-filled/50/000000/search--v1.png"
+                    alt="search--v1" />
+                <input type="text" id="search-bar" placeholder="Search for location">
+
+                <!-- <label class="search-label" for="search"> </label> -->
+
+            </div>
+            <div class="left-navbar">
+
+            </div>
+            <!------------Current Weather------------------->
+            <div class="current-weather">
+                <p class="current-day">Current Weather</p>
+                <p class="current-time">Time</p>
+                <div><span><img width="64" height="64"
+                            src="https://img.icons8.com/cute-clipart/64/partly-cloudy-day.png"
+                            alt="partly-cloudy-day" /></span><span class="current-temperature"></span></div>
+                <div class="weather-updates">
+                    <img class="sub-updates" id="breeze" width="25" height="25"
+                        src="https://img.icons8.com/ios/50/moisture.png" alt="moisture" />
+                    <img class="sub-updates" width="25" height="25"
+                        src="https://img.icons8.com/external-microdots-premium-microdot-graphic/64/external-precipitation-weather-forecast-microdots-premium-microdot-graphic-2.png"
+                        alt="external-precipitation-weather-forecast-microdots-premium-microdot-graphic-2" />
+                    <img class="sub-updates" width="25" height="25"
+                        src="https://img.icons8.com/external-prettycons-flat-prettycons/47/external-wind-weather-prettycons-flat-prettycons.png"
+                        alt="external-wind-weather-prettycons-flat-prettycons" />
+                    <img class="sub-updates" width="25" height="25" src="https://img.icons8.com/sf-regular/48/sun.png"
+                        alt="sun" />
+                    <span class="sub-updates" id="moisture">
+                    </span>
+                    <span class="sub-updates" id="precipitation">
+                    </span>
+                    <span class="sub-updates" id="current-winds">
+                    </span>
+                    <span class="sub-updates" id="visibility">
+                    </span>
+                </div>
+            </div>
+            <div class="map"></div>
+            <div class="cities"></div>
+            <div class="forecast"></div>
+            <div class="weather-summary"></div>
         </div>
     </section>
 
+
+    <!--Bootstrap js-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
-<script src="/script.js">
-    // const intervalId = function () {
-
-    //     console.log("Abinash");
-
-    // }
-    // let interval;
-
-    // const startElement = document.querySelector("#start");
-    // const stopElement = document.querySelector("#stop");
-
-    // startElement.addEventListener("click", function () {
-    //     interval = setInterval(intervalId, 2000);
-    // }, false);
-
-    // stopElement.addEventListener("click", function () {
-    //     console.log("working")
-    //     clearInterval(interval)
-    // }, false);
-
-
-</script>
+<script src="script.js"></script>
 
 </html>

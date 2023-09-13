@@ -1,20 +1,180 @@
- body {
-            background-color:rgba(66, 204, 254, 0.304);
-            color: #000;
-           align-content: center;
-        }
+
+body{
+    background: linear-gradient(#337CCF, #116994);
+    overflow-y: hidden;
+}
 .weather{
+    background: linear-gradient(#1D5D9B, #084767);
+
+    /* border: 1px solid #1450A3; */
+    box-shadow: 5px 5px 5px 5px  #1450a36a;
+    
+    border-radius: .5rem;
+    height: 80vh;   
+    margin: 5rem 10rem;
+    opacity: 0.5;
+    overflow-x: hidden;
     display: flex;
-    /* align-items: center; */
-    /* margin-left: 25%; */
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 1rem;
+  
+}
+.cloud-left{
+    position: absolute;
+    left: 8%;
+    top: 1%;
+    width: 140px;
+    height: 140px;
+    filter:brightness(160%);
+    filter: drop-shadow(10px 20px 10px #2828289d);
 
 }
-span{
-    border: 1px solid black;
-    margin: 10px;
-    font-size: 2rem;
+
+.cloud-middle{
+    position: absolute;
+    right: 45%;
+    top: 8%;
+    filter:brightness(160%);
+    filter: drop-shadow(10px 20px 10px #282828);
+
+ 
 }
-.week-days{
-    /* margin-left: 25%; */
-    margin-top: 50px;
+.cloud-right{
+    position: absolute;
+    left: 90%;
+    top: 1%;
+    width: 120px;
+    filter: drop-shadow(10px 15px 6px #282828);
+
+    
+} 
+.left-navbar{
+    background-color: #8ea1bc;
+    height: 79.7vh;
+    width: 5rem;
+    
+    margin: 5px;
+}
+.current-weather, .cities{
+    background: linear-gradient(#f5f6f77d, #327ecab0);
+    height: 15rem;
+    width: 12rem;
+    margin: 6rem 0.5rem 1rem .5rem;
+    border-radius: 25px;
+
+    color: #ffffff;
+}
+.map{
+    background: linear-gradient(#f5f6f77d, #1d5c9b6a);    height: 15rem;
+    width: 15rem;
+    margin: 6rem 0.5rem 1rem .5rem;
+    flex-grow: 1;
+    border-radius: 25px;
+
+}
+/* .cities{
+    background-color: #000;
+    height: 20rem;
+    width: 15rem;
+    margin: 5px;
+    border-radius: 25px;
+    /* margin-left: 7rem; */
+
+
+.forecast{
+    background: linear-gradient(#f5f6f77d, #1d5c9b6a);
+    height: 15rem;
+    width: 12rem;
+    margin: 5px;
+    border-radius: 25px;
+    flex-wrap: wrap;
+    position: relative;
+    left: 12%;
+    /* bottom:20%; */
+    /* flex-grow: ; */
+
+}
+.weather-summary{
+    background: linear-gradient(#f5f6f77d, #1d5c9b6a);    height: 20rem;
+    width: 20rem;
+    margin: 5px;
+    border-radius: 25px;
+    flex-wrap: wrap;
+    margin-left: 7rem;
+    flex-grow: .9;
+    position: relative;
+    /* bottom:20%; */
+    /* left: 12%; */
+    
+    
+}
+.search-bar{
+    background-color: #8ea1bc;
+    height: 3rem;
+    width: 20rem;
+    margin: 5px;
+    border-radius: 25px;  
+    position: absolute;
+    left: 20%;
+    flex-wrap: wrap;
+    opacity: 50%;
+    /* margin:5px 5px 80px 5px; */
+    
+}
+.search-bar img{
+    
+    margin: 0.5rem 0rem 0.8rem 0.5rem;
+}
+/* .search-label{
+    padding: 0.8rem 0.8rem 0.8rem 1rem;
+    color: #fff;
+} */
+.current-weather{
+    padding-left: 20px;
+    padding-top: 10px;
+
+}
+.weather-updates{
+    margin: 20px 10px 1px 10px;
+}
+.sub-updates{
+    margin:3px
+}
+#moisture{
+    margin-left: 0px;
+}
+#precipitation{
+    margin-left: 12px;
+}
+#current-winds{
+margin-left: 10px;
+}
+#breeze{
+    margin-left: 0px;
+    padding-left: 0px;
+    border-left: 0px;
+}
+#search-bar{
+    /* margin-bottom: 0px; */
+    padding:10px 5px 10px 5px;
+    background-color: #8ea1bc;
+    margin-top: 0px;
+    background:transparent;
+    color: white;
+    border: none;
+    border-radius: 25px;
+}
+.current-time{
+    margin-top: 0px;
+}
+.current-day{
+    margin-bottom: 0px;
+border-bottom: 0px;
+font-size: 1rem;
+font-weight: 700;
+
+}
+.weather-updates img{
+
 }

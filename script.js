@@ -1,179 +1,121 @@
-// // // "strict-mode";
-// // // console.log("working");
-// const hitestImage = document.querySelector(".hitesh-img");
-// const hiteshFollowerCount = document.querySelector(".follower");
-// const personName = document.querySelector(".person-name");
-// // // //creating an Ajax request
-// // // const xhr = new XMLHttpRequest();
-// // // const requestUrl = "https://api.github.com/users/hiteshchoudhary";
-// // // xhr.open("GET", requestUrl);
-// // // xhr.onreadystatechange = function () {
-// // //   if (xhr.readyState === 4) {
-// // //     const hiteshObj = JSON.parse(this.responseText);
-// // //     console.log(hiteshObj.avatar_url);
-// // //     personName.innerHTML = hiteshObj.name;
-// // //     hitestImage.src = hiteshObj.avatar_url;
-// // //     hiteshFollowerCount.innerHTML = `${hiteshObj.name}'s Followers: ${hiteshObj.followers}`;
-// // //   }
-// // //   //   console.log(xhr.readyState);
-// // // };
+"strict-mode";
+const currentTime = document.querySelector(".current-time");
+const currentTemperature = document.querySelector(".current-temperature");
 
-// // // xhr.send();
+//getting all the sub updating weather elements
+const moisture = document.querySelector("#moisture");
+const precipitationToday = document.querySelector("#precipitation");
+const windSpeed = document.querySelector("#current-winds");
+const visibilityIndex = document.querySelector("#visibility");
+console.log(moisture, precipitation, windSpeed, visibilityIndex);
 
-// // // //create HTML element function
-// // // const containerElement = function (indexImg, charName) {
-// // //   const div = document.createElement("div");
-// // //   const image = document.createElement("img");
-// // //   const pTag = document.createElement("p");
-// // //   div.style.border = "1px solid white";
-// // //   image.style.border = "1px solid blue";
-// // //   div.className = "user";
-// // //   image.className = "userImage";
-// // //   pTag.className = "description";
-// // //   pTag.innerHTML = charName;
-// // //   image.src = indexImg;
-// // //   image.style.height = "20rem";
-// // //   image.style.widht = "20rem";
-// // //   div.appendChild(image);
-// // //   div.appendChild(pTag);
-// // //   //   const parentElement = hitestImage.parentNode;
-// // //   //   parentElement.insertBefore(div, hitestImage);
-// // //   document.body.appendChild(div);
-// // // };
-// // // const nameArray = ["Harry", "Ginny", "Hermoine", "Ron", "Luna"];
-// // // const urlArray = [
-// // //   "https://upload.wikimedia.org/wikipedia/en/thumb/d/d7/Harry_Potter_character_poster.jpg/220px-Harry_Potter_character_poster.jpg",
-// // //   "https://imgix.ranker.com/user_node_img/50115/1002288236/original/1002288236-photo-u1?auto=format&q=60&fit=crop&fm=pjpg&dpr=2&w=375",
-// // //   "https://m0.joe.ie/wp-content/uploads/2017/06/19171526/hermione.jpg",
-// // //   "https://images.ctfassets.net/usf1vwtuqyxm/5Xpzr1HK3TCNJOTBvD2okc/a16952f5548e490a91e9f78e1be97caa/HP-F6-half-blood-prince-ron-pyjamas-smirking-love-potion-web-landscape?fm=jpg&q=70&w=2560",
-// // //   "https://images.ctfassets.net/usf1vwtuqyxm/Mam68Vfou2OO6kqEcyW8W/41657e4dbb7d42d2cab591276105bcc1/LunaLovegood_WB_F6_LunaLovegoodInQuibblerSpecsOnHogwartsExpress_Still_080615_Port.jpg?w=1200&fit=fill&f=top",
-// // // ];
-// // // for (let element = 0; element < 5; element++) {
-// // //   containerElement(urlArray[element], nameArray[element]);
-// // // }
+//-------------------Current temperature element----------------
+currentTemperature.style.fontSize = "2rem";
+currentTemperature.style.fontWeight = "800";
+// Global variable for API data received
 
-// // //MY CHEAT SHEET FOR DOM
+//APi Call
+const url =
+  "https://api.open-meteo.com/v1/forecast?latitude=18.5204&longitude=11.5820&hourly=temperature_2m,relativehumidity_2m,dewpoint_2m,apparent_temperature,precipitation_probability,precipitation,rain,visibility,windspeed_10m,windspeed_80m,windspeed_120m,uv_index,uv_index_clear_sky,is_day&daily=temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,uv_index_max,uv_index_clear_sky_max,precipitation_sum,rain_sum,showers_sum,windspeed_10m_max,windgusts_10m_max&timezone=auto";
+//getting time
+const time = new Date();
+const currentHour = parseInt(time.toLocaleTimeString());
+//getting the date and reversing the   string
+let dateVal = time.toLocaleDateString();
+const dateString = dateVal.replaceAll("/", "-");
+const componentDate = dateString.split("-");
+console.log(componentDate);
+const day = componentDate[0].padStart(2, "0");
+const month = componentDate[1].padStart(2, "0");
+const year = componentDate[2];
 
-// // //1: SELECTING ELEMENTS
-// // // const hiteshDiv = document.querySelector(".hitesh-choudary");
-// // // const hiteshDiv = document.getElementById("mi7");
-// // const li = document.getElementsByTagName("li");
-// // // const div = document.getElementsByClassName("hitesh-choudary");
-// // const ul = document.getElementsByClassName("un-orderedList");
-// // const array = Array.prototype.slice.call(li);
-// // const liItems = document.querySelector(".un-orderedList");
-// // console.log(array);
-// // console.log(liItems.firstElementChild);
-// // console.log(liItems.lastElementChild.innerHTML);
-// // console.log(liItems.parentElement.parentElement);
-// // console.log(liItems.nextElementSibling);
-// // console.log(liItems.childNodes);
-// // const newElement = document.createElement("form");
-// // const text = document.createTextNode("dynamically created element");
-// // newElement.appendChild(text);
-// // document.body.appendChild(newElement);
-// // document.body.removeChild(newElement);
-// // //new element
-// // const newElement2 = document.createElement("div");
-// // const textElement = document.createTextNode("2nd element");
-// // newElement2.appendChild(textElement);
+const reverseDate = year + "-" + month + "-" + day;
+console.log(reverseDate);
 
-// // document.body.appendChild(newElement);
-// // document.body.replaceChild(newElement2, newElement);
-// // newElement2.innerHTML = "This is INNERHTML";
-// // newElement2.style.color = "green";
-// // // newElement2.outerHTML = "<h1>Converted to H1 tag</h1>";
-// // // console.log((newElement2.outerHTML = "<h1>Converted to H1 tag</h1>"));
+const timeObject = {
+  hour: "numeric",
+  minute: "numeric",
+  hour12: true,
+};
+const formattedTime = time.toLocaleTimeString(undefined, timeObject);
 
-// // newElement2.setAttribute("title", "mi7");
-// // console.log(newElement2.getAttribute("title"));
-// // console.log(newElement2.hasAttribute("title"));
-// // newElement2.removeAttribute("title");
-// // console.log(newElement2.hasAttribute("title"));
-// // newElement2.className = "broBro";
-// // newElement2.classList.add("value");
-// // console.log(newElement2.className);
-// // newElement2.classList.remove("broBro");
-// // console.log(newElement2.className);
-// // newElement2.classList.toggle("broBro");
-// // console.log(newElement2);
-
-// //=================Promises in javascript=====================
-// const promiseOne = new Promise(function (resolve, reject) {
-//   let error = true;
-
-//   if (!error) {
-//     resolve("Response recieved");
-//   } else {
-//     reject("Error Something went wrong");
-//   }
-// });
-
-// fetch("https://api.github.com/users/hiteshchoudhary")
-//   .then((response) => {
-//     return response.json();
-//   })
-//   .then((data) => {
-//     console.log(data);
-//     hitestImage.src = data.avatar_url;
-//     hiteshFollowerCount.innerHTML = `Github followers ${data.followers}`;
-//     personName.innerHTML = data.name;
-//   })
-//   .catch((error) => console.log(error));
-
-// async function requestOne() {
-//   const response = await fetch("https://api.github.com/users/hiteshchoudhary");
-
-//   try {
-//     const data = response.json();
-//     console.log(data);
-//   } catch (error) {
-//     console.log("Error: ", error);
-//   }
-// }
-
-// requestOne();
-//==============Api project testing================
-//api link: https://api.open-meteo.com/v1/forecast?latitude=19.0728&longitude=72.8826&hourly=temperature_2m,relativehumidity_2m,dewpoint_2m,precipitation,rain,cloudcover_low,cloudcover_mid,cloudcover_high,windspeed_10m,windspeed_80m,is_day&daily=weathercode,temperature_2m_max,temperature_2m_min&current_weather=true&timezone=Asia%2FSingapore&start_date=2023-09-06&end_date=2023-09-07
-
-//Selecting html elements
-const weatherElements = document.querySelectorAll(".weather-data");
-// console.log(weather);
-
+//Making api call to get the weather data
 async function weatherApi() {
-  const reponse = await fetch(
-    "https://api.open-meteo.com/v1/forecast?latitude=19.0728&longitude=72.8826&hourly=temperature_2m,relativehumidity_2m,dewpoint_2m,precipitation,rain,cloudcover_low,cloudcover_mid,cloudcover_high,windspeed_10m,windspeed_80m,is_day&daily=weathercode,temperature_2m_max,temperature_2m_min&current_weather=true&timezone=Asia%2FSingapore&start_date=2023-09-06&end_date=2023-09-07"
-  );
+  const response = await fetch(url);
   try {
-    const weatherData = await reponse.json();
-    const { temperature, windspeed, winddirection, weathercode, is_day, time } =
-      weatherData.current_weather;
-    const value = weatherData.current_weather;
-    console.log(value);
-    const weatherArray = Object.values(value);
-    console.log(weatherArray);
-    weatherArray.forEach((data) => {
-      console.log(data);
-      weatherArray.forEach((data, index) => {
-        // Update each weather element's innerText with the corresponding value
+    weatherData = await response.json();
+    console.log(weatherData);
 
-        weatherElements[index].innerText = data;
-      });
+    // console.log(weatherData.daily.time);
+    const hourlyTemperature = weatherData.hourly.temperature_2m;
+
+    //--------------------loop to iterate the temperature on hourly basis--------------------
+    hourlyTemperature.forEach((temp, index) => {
+      if (currentHour === index) {
+        console.log(
+          `The temperature ${temp}°C was found at time ${time.toLocaleTimeString()} `
+        );
+        currentTime.innerHTML = formattedTime;
+        currentTemperature.innerHTML = `${temp}°C`;
+      }
     });
-    //windspeed , time, winddirection, windspeed, is_day
-    //timezone
-    console.log(
-      temperature,
-      windspeed,
-      winddirection,
-      weathercode,
-      is_day,
-      time
-    );
-  } catch (error) {
-    console.log("Error: ", error);
-  }
-}
 
+    console.log(weatherData.daily.precipitation_sum);
+
+    //stored values of the sub updates section
+    const precipitation = weatherData.daily.precipitation_sum;
+    const windVelocity = weatherData.daily.windspeed_10m_max;
+    const humidity = weatherData.hourly.relativehumidity_2m;
+    const visibilityDistance = weatherData.hourly.visibility;
+
+    const timeString = weatherData.hourly.time;
+    const weekDays = weatherData.daily.time;
+    console.log(
+      precipitation,
+      windVelocity,
+      humidity,
+      visibilityDistance,
+      timeString,
+      weekDays
+    );
+
+    //looping to put humidity
+    humidity.forEach((humidityValue, index) => {
+      if (currentHour === index) {
+        moisture.innerHTML = humidityValue;
+        moisture.style.fontSize = "12px";
+      }
+    });
+    //looping array to put precipitation vlaue
+    console.log(reverseDate, weekDays);
+    precipitation.forEach((precipitationAmount, index) => {
+      if (reverseDate === weekDays[index]) {
+        precipitationToday.innerText = precipitationAmount;
+        console.log(`the prec amount is ${precipitationAmount} `);
+        precipitationToday.style.fontSize = "12px";
+        precipitationToday.style.marginLeft = "16px";
+      }
+    });
+    //looping to put wind speed
+    windVelocity.forEach((speed, index) => {
+      if (reverseDate === weekDays[index]) {
+        const windSpeed = document.querySelector("#current-winds");
+
+        windSpeed.innerHTML = `${speed} m/s`;
+        windSpeed.style.fontSize = "12px";
+      }
+    });
+    // console.log(visibilityDistance);
+    //looping to insert visibilityDistance
+    visibilityDistance.forEach((distance, index) => {
+      if (currentHour === index) {
+        let distanceInKm = distance / 1000;
+        visibilityIndex.innerHTML = ` ${Math.floor(distanceInKm)} km`;
+        visibilityIndex.style.fontSize = "12px";
+      }
+    });
+    // console.log(weatherData);
+    // console.log(weatherData);
+  } catch (error) {}
+}
 weatherApi();
-console.log(weatherArray);
