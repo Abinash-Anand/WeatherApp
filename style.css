@@ -99,6 +99,7 @@ body {
     flex-wrap: wrap;
     position: relative;
     left: 12%;
+    
     /* bottom:20%; */
     /* flex-grow: ; */
 
@@ -200,15 +201,11 @@ body {
 
 .forecast-first-child{
     padding: 1rem;
-    word-spacing: 3rem;
+    word-spacing: 2.3rem;
     color: white;
+    text-align: left;
 }
-.forecast-second-child{
-   
 
-
-    
-}
 .forecast-data{
     /* background-color: black; */
     /* padding: 2px; */
@@ -225,11 +222,21 @@ body {
 }
 .week-forecast{
     /* padding-left: 5px; */
-    margin-left: 35px;
+    margin-left: 15px;
     /* text-align:justify; */
 }
 .forecast-data > span{
     margin-right: 0px;
     padding-right: 0px;
+   
 
+}
+.forecast-second-child {
+    font-weight: 800;
+}
+.forecast-second-child img{
+    margin-right: 20px;
+}
+span{
+    font-weight: 700;
 }
