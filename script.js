@@ -1,4 +1,5 @@
 "strict-mode";
+//---------------------------------------Html Elements----------------------------------------
 const currentTime = document.querySelector(".current-time");
 const currentTemperature = document.querySelector(".current-temperature");
 
@@ -16,8 +17,9 @@ const forecastData = document.querySelectorAll(".data");
 const minTempData = document.querySelectorAll(".min-temp");
 const dateElement = document.querySelectorAll(".date");
 const weekForecastData = document.querySelectorAll(".week-forecast");
+// document.body.style.background = url("/rainyBackground.gif");
+//-------------------------Weather images-------------------------------------------------------
 
-//Weather images
 const weatherIcon = document.querySelectorAll(".forecast-icon");
 console.log(weatherIcon);
 /*
@@ -32,6 +34,7 @@ else if(weatherCode >=61 ){
 weatherIcon.innerText= "assets/rainyDay.png"
 }
 }
+
 WMO Weather interpretation codes (WW)
     -------------------------------------------------------------------------- 
     | Code 	     Description
@@ -57,10 +60,11 @@ currentTemperature.style.fontSize = "2rem";
 currentTemperature.style.fontWeight = "800";
 // Global variable for API data received
 
-//APi Call
+//----------------------------------------APi Call-------------------------------------------------------------
 const url =
   "https://api.open-meteo.com/v1/forecast?latitude=18.5196&longitude=73.8554&hourly=temperature_2m,relativehumidity_2m,dewpoint_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,weathercode,pressure_msl,surface_pressure,cloudcover,cloudcover_low,cloudcover_mid,cloudcover_high,visibility,evapotranspiration,et0_fao_evapotranspiration,vapor_pressure_deficit,windspeed_10m,windspeed_80m,windspeed_120m,windspeed_180m,winddirection_10m,winddirection_80m,winddirection_120m,winddirection_180m,windgusts_10m,temperature_80m,temperature_120m,temperature_180m,uv_index,uv_index_clear_sky,is_day,freezinglevel_height&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,uv_index_max,uv_index_clear_sky_max,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max,windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant,shortwave_radiation_sum,et0_fao_evapotranspiration&timezone=auto";
-//getting time
+
+//-------------------------------------getting time---------------------------------------------
 const time = new Date();
 // const currentHour = parseInt(time.toLocaleTimeString());
 //getting the date and reversing the   string
@@ -79,8 +83,7 @@ const year = componentDate[2];
 
 const reverseDate = year + "-" + month + "-" + day;
 // console.log(reverseDate);
-//--------------------------------------------------------------------------------------
-// Create a new Date object
+//-------------------------------------------- Create a new Date object---------------------------------------
 const now = new Date();
 
 // Get the current hours and minutes
@@ -104,7 +107,7 @@ const timeObject = {
 };
 const formattedTime = time.toLocaleTimeString(undefined, timeObject);
 
-// Week days array
+//------------------- Week days array--------------------
 
 const months = [
   "Jan",
@@ -271,3 +274,44 @@ const intervalTime = 60 * 60 * 1000;
 setInterval(function () {
   intervalTime();
 }, intervalTime);
+
+//--------------------Leaflet map api------------------------------------
+var map = L.map("map").setView([18.5204, 73.8567], 13);
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 19,
+  attribution:
+    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+}).addTo(map);
+
+navigator.geolocation.watchPosition(success, error);
+let marker, circle, zoomed;
+function success(pos) {
+  const lat = pos.coords.latitude;
+  const lng = pos.coords.longitude;
+  const accuracy = pos.coords.accuracy;
+  marker = L.marker([lat, lng]).addTo(map);
+
+  circle = L.circle([lat, lng], {
+    color: "red",
+    fillColor: "#f03",
+    fillOpacity: 0.5,
+    radius: 500,
+  }).addTo(map);
+  // if (marker) {
+  //   map.removeLayer(marker);
+  //   map.removeLayer(circle);
+  // }
+  // marker = L.marker([lat, lng]).addTo(map);
+  // circle = L.circle([lat, lng], { radius: accuracy }).addTo(map);
+  // if (!zoomed) {
+  //   zoomed = map.fitBounds(circle.getBounds());
+  // }
+  // map.setView([lat, lng]);
+}
+function error(err) {
+  if (err.code === 1) {
+    alert("Please allow Geolocation access");
+  } else {
+    alert("Cannot get current location");
+  }
+}

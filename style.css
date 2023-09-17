@@ -11,8 +11,8 @@ body {
 
     border-radius: 1rem;
     height: 85vh;
-    margin: 5rem 10rem;
-    opacity: 0.5;
+    margin: 4rem 10rem;
+    opacity: 0.9;
     overflow-x: hidden;
     display: flex;
     flex-wrap: wrap;
@@ -52,12 +52,24 @@ body {
 
 }
 
-.left-navbar {
-    background-color: #8ea1bc;
-    height: 79.7vh;
-    width: 5rem;
-    border-radius: 10px;
-    margin: 5px;
+.left-navbar     {
+    background-color: #f5f6f742;
+    height: 85vh;
+    width: 3.5rem;
+    display: flex;
+    flex-direction: column;
+
+    /* border-radius: 10px; */
+    /* margin: 5px; */
+}
+.left-navbar .nav-icons{
+    margin: 2rem 0.8rem 0rem 0.8rem;
+
+
+}
+.left-navbar .log-out{
+    margin: 10rem 0.8rem 0rem 0.8rem;
+
 }
 
 .current-weather,
@@ -71,10 +83,10 @@ body {
     color: #ffffff;
 }
 
-.map {
+#map {
     background: linear-gradient(#f5f6f77d, #1d5c9b6a);
     height: 15rem;
-    width: 15rem;
+    width: 20rem;
     margin: 6rem 0.5rem 1rem .5rem;
     flex-grow: 1;
     border-radius: 25px;
@@ -97,15 +109,17 @@ body {
     margin: 5px;
     border-radius: 25px;
     flex-wrap: wrap;
-    position: relative;
-    left: 12%;
+    margin-top: 100px;
+    margin-right: 20px;
+    /* position: relative;
+    left: 12%; */
     
     /* bottom:20%; */
     /* flex-grow: ; */
 
 }
 
-.weather-summary {
+/* .weather-summary {
     background: linear-gradient(#f5f6f77d, #1d5c9b6a);
     height: 20rem;
     width: 20rem;
@@ -115,22 +129,22 @@ body {
     margin-left: 7rem;
     flex-grow: .9;
     position: relative;
-    /* bottom:20%; */
-    /* left: 12%; */
+ 
 
 
-}
+} */
 
 .search-bar {
     background-color: #8ea1bc;
     height: 3rem;
     width: 20rem;
-    margin: 5px;
-    border-radius: 25px;
+    margin: 10px 5px 5px 0px;
+    padding-left: 0px;
+    border-radius: 10px;
     position: absolute;
     left: 20%;
     flex-wrap: wrap;
-    opacity: 50%;
+    opacity: 80%;
     /* margin:5px 5px 80px 5px; */
 
 }
@@ -140,10 +154,8 @@ body {
     margin: 0.5rem 0rem 0.8rem 0.5rem;
 }
 
-/* .search-label{
-    padding: 0.8rem 0.8rem 0.8rem 1rem;
-    color: #fff;
-} */
+
+
 .current-weather {
     padding-left: 20px;
     padding-top: 10px;
@@ -178,13 +190,15 @@ body {
 
 #search-bar {
     /* margin-bottom: 0px; */
-    padding: 10px 5px 10px 5px;
-    background-color: #8ea1bc;
+    padding: 5px 5px 5px 5px;
+    /* background-color: #8ea1bc; */
     margin-top: 0px;
     background: transparent;
     color: white;
     border: none;
-    border-radius: 25px;
+    border-radius: 5px;
+    width: 15rem;
+
 }
 
 .current-time {
@@ -240,3 +254,5 @@ body {
 span{
     font-weight: 700;
 }
+/* Leaflet map */
+/* #map { height: 180px; } */
