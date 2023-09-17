@@ -78,7 +78,7 @@ body {
     height: 15rem;
     width: 12rem;
     margin: 6rem 0.5rem 1rem .5rem;
-    border-radius: 25px;
+    border-radius: 10px;
 
     color: #ffffff;
 }
@@ -89,7 +89,7 @@ body {
     width: 20rem;
     margin: 6rem 0.5rem 1rem .5rem;
     flex-grow: 1;
-    border-radius: 25px;
+    border-radius: 10px;
 
 }
 
@@ -107,7 +107,7 @@ body {
     height: 15rem;
     width: 12rem;
     margin: 5px;
-    border-radius: 25px;
+    border-radius: 10px;
     flex-wrap: wrap;
     margin-top: 100px;
     margin-right: 20px;
@@ -188,16 +188,17 @@ body {
     border-left: 0px;
 }
 
-#search-bar {
-    /* margin-bottom: 0px; */
-    padding: 5px 5px 5px 5px;
-    /* background-color: #8ea1bc; */
+#search-container, #search-bar {
+    
+    /* padding:0px 5px 0px 5px;     */
     margin-top: 0px;
     background: transparent;
     color: white;
     border: none;
     border-radius: 5px;
-    width: 15rem;
+    /* width: 10rem; */
+
+
 
 }
 
@@ -256,3 +257,22 @@ span{
 }
 /* Leaflet map */
 /* #map { height: 180px; } */
+
+#search-bar{
+    padding: 3px 3px;
+    /* margin-top: 1px; */
+    
+}
+
+#search-container{
+    position: relative;
+    bottom  : 90%;
+    left: 15%;
+}
+#search-button{
+    font-size: 12px;
+    margin-bottom: 7px;
+    margin-left: 3px;
+    font-weight: 600;
+    
+}

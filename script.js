@@ -18,22 +18,11 @@ const minTempData = document.querySelectorAll(".min-temp");
 const dateElement = document.querySelectorAll(".date");
 const weekForecastData = document.querySelectorAll(".week-forecast");
 // document.body.style.background = url("/rainyBackground.gif");
-//-------------------------Weather images-------------------------------------------------------
 
 const weatherIcon = document.querySelectorAll(".forecast-icon");
-console.log(weatherIcon);
+// console.log(weatherIcon);
 /*
-function currentWeatherCode(){
-if(weatherCode >=0 && weatherCode<1){
-weatherIcon.innerText= "assets/sunnyDay.png"
-}
-else if(weatherCode >=1 && weatherCode=<3){
-weatherIcon.innerText= "assets/cloudyDay.png"
-}
-else if(weatherCode >=61 ){
-weatherIcon.innerText= "assets/rainyDay.png"
-}
-}
+
 
 WMO Weather interpretation codes (WW)
     -------------------------------------------------------------------------- 
@@ -60,10 +49,6 @@ currentTemperature.style.fontSize = "2rem";
 currentTemperature.style.fontWeight = "800";
 // Global variable for API data received
 
-//----------------------------------------APi Call-------------------------------------------------------------
-const url =
-  "https://api.open-meteo.com/v1/forecast?latitude=18.5196&longitude=73.8554&hourly=temperature_2m,relativehumidity_2m,dewpoint_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,weathercode,pressure_msl,surface_pressure,cloudcover,cloudcover_low,cloudcover_mid,cloudcover_high,visibility,evapotranspiration,et0_fao_evapotranspiration,vapor_pressure_deficit,windspeed_10m,windspeed_80m,windspeed_120m,windspeed_180m,winddirection_10m,winddirection_80m,winddirection_120m,winddirection_180m,windgusts_10m,temperature_80m,temperature_120m,temperature_180m,uv_index,uv_index_clear_sky,is_day,freezinglevel_height&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,uv_index_max,uv_index_clear_sky_max,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max,windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant,shortwave_radiation_sum,et0_fao_evapotranspiration&timezone=auto";
-
 //-------------------------------------getting time---------------------------------------------
 const time = new Date();
 // const currentHour = parseInt(time.toLocaleTimeString());
@@ -80,7 +65,6 @@ const componentDate = dateString.split("-");
 const day = componentDate[0].padStart(2, "0");
 const month = componentDate[1].padStart(2, "0");
 const year = componentDate[2];
-
 const reverseDate = year + "-" + month + "-" + day;
 // console.log(reverseDate);
 //-------------------------------------------- Create a new Date object---------------------------------------
@@ -97,7 +81,7 @@ const formattedMinutes = String(minutes).padStart(2, "0");
 // Combine hours and minutes to get the time in 24-hour format
 const timeIn24HourFormat = `${formattedHours}:${formattedMinutes}`;
 const currentHour = timeIn24HourFormat.slice(0, 2);
-console.log(currentHour);
+// console.log(currentHour);
 //--------------------------------------------------------------------------------------
 
 const timeObject = {
@@ -140,21 +124,34 @@ for (let i = 0; i < weekDays.length; i++) {
 }
 
 const weekForecast = Object.values(daysWeeksMonths);
-console.log(weekForecast);
+// console.log(weekForecast);
 
 //--------------------------Making api call to get the weather data---------------------------
+let url =
+  "https://api.open-meteo.com/v1/forecast?latitude=18.5196&longitude=73.8554&hourly=temperature_2m,relativehumidity_2m,dewpoint_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,weathercode,pressure_msl,surface_pressure,cloudcover,cloudcover_low,cloudcover_mid,cloudcover_high,visibility,evapotranspiration,et0_fao_evapotranspiration,vapor_pressure_deficit,windspeed_10m,windspeed_80m,windspeed_120m,windspeed_180m,winddirection_10m,winddirection_80m,winddirection_120m,winddirection_180m,windgusts_10m,temperature_80m,temperature_120m,temperature_180m,uv_index,uv_index_clear_sky,is_day,freezinglevel_height&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,uv_index_max,uv_index_clear_sky_max,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max,windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant,shortwave_radiation_sum,et0_fao_evapotranspiration&timezone=auto";
 
 async function weatherApi() {
   const response = await fetch(url);
   try {
     weatherData = await response.json();
-    console.log(weatherData);
+    // console.log(weatherData);
 
     // console.log(weatherData.daily.time);
     const hourlyTemperature = weatherData.hourly.temperature_2m;
 
     //--------------------loop to iterate the temperature on hourly basis--------------------
+
     const currentTime24hour = weatherData.hourly.time;
+    console.log("current time", currentTime24hour);
+    //----time string for dynamic time clock -----------------
+    // for (const time of currentTime24hour) {
+    //   const timeSlice = time.slice(11, 13);
+    //   time24hourList.push(timeSlice);
+    // }
+    const globalTime = new Date();
+    const globalTimeClock = globalTime.toLocaleTimeString();
+    console.log("Current time", globalTimeClock);
+
     const time24hourList = [];
     for (const time of currentTime24hour) {
       const timeSlice = time.slice(11, 13);
@@ -183,16 +180,8 @@ async function weatherApi() {
     const humidity = weatherData.hourly.relativehumidity_2m;
     const visibilityDistance = weatherData.hourly.visibility;
 
-    const timeString = weatherData.hourly.time;
+    // const timeString = weatherData.hourly.time;
     const weekDays = weatherData.daily.time;
-    // console.log(
-    //   precipitation,
-    //   windVelocity,
-    //   humidity,
-    //   visibilityDistance,
-    //   timeString,
-    //   weekDays
-    // );
 
     //looping to put humidity
     humidity.forEach((humidityValue, index) => {
@@ -267,15 +256,109 @@ async function weatherApi() {
     // console.log(daysWeeksMonths);
     // console.log(weatherData);
     // console.log(weatherData);
-  } catch (error) {}
+  } catch (error) {
+    console.log("Error:", error);
+  }
 }
 weatherApi();
-const intervalTime = 60 * 60 * 1000;
-setInterval(function () {
-  intervalTime();
-}, intervalTime);
+// const intervalTime = 60 * 60 * 1000;
+// setInterval(function () {
+//   intervalTime();
+// }, intervalTime);
 
-//--------------------Leaflet map api------------------------------------
+//-------------------------GeoCoding------------------------------------------------------------
+
+// const cityName = document.querySelector("#search-form");
+// const cityNameInput = document.querySelector("#search-bar");
+
+// cityName.addEventListener("submit", function (e) {
+//   e.preventDefault();
+//   const placeName = cityNameInput.value;
+//   console.log(placeName);
+//   // geocodeAndLog(placeName);
+//   getLatLongFromPlaceName(placeName);
+// });
+// // console.log(coordsLat, coordsLng);
+// // function geocodeAndLog(placeName) {
+// //   var requestOptions = {
+// //     method: "GET",
+// //   };
+
+// //   const url = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(
+// //     placeName
+// //   )}&apiKey=61d707dd048e4e3782cb2a0716af0142`;
+
+// //   fetch(url, requestOptions)
+// //     .then((response) => response.json())
+// //     .then((data) => {
+// //       const location = data.results[0].geometry.location;
+// //       const latitude = location.lat;
+// //       const longitude = location.lng;
+// //       console.log(latitude, longitude); // For debugging
+// //       updateMapWithLatLong(latitude, longitude); // Update the map
+// //     })
+// //     .catch((error) => console.log("error", error));
+// // }
+
+// // Call the function with a specific placeName
+// // const placeName =
+// //   "38 Upper Montagu Street, Westminster W1H 1LJ, United Kingdom";
+
+// //----------------------GeoCoding-------------------------------------------
+// async function getLatLongFromPlaceName(placeName) {
+//   const geocodingAPIUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(
+//     placeName
+//   )}&apiKey=61d707dd048e4e3782cb2a0716af0142`;
+//   try {
+//     const response = await fetch(geocodingAPIUrl);
+//     const data = await response.json();
+//     const location = data.results[0].geometry.location;
+//     const latitude = location.lat;
+//     const longitude = location.lng;
+//     console.log(latitude, longitude); // For debugging
+//     updateMapWithLatLong(latitude, longitude); // Update the map
+//   } catch (error) {
+//     console.error("Error fetching data:", error);
+//   }
+// }
+// //--------------------Leaflet map api------------------------------------
+// // Create the map
+// const map = L.map("map").setView([18.5204, 73.8567], 13);
+// L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+//   maxZoom: 19,
+//   attribution:
+//     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+// }).addTo(map);
+
+// // Initialize marker and circle variables
+// let marker, circle, zoomed;
+
+// // Function to update the map with latitude and longitude
+// function updateMapWithLatLong(latitude, longitude) {
+//   if (marker) {
+//     map.removeLayer(marker);
+//     map.removeLayer(circle);
+//   }
+//   marker = L.marker([latitude, longitude]).addTo(map);
+//   circle = L.circle([latitude, longitude], { radius: 100 }).addTo(map); // Adjust the radius as needed
+//   if (!zoomed) {
+//     zoomed = map.fitBounds(circle.getBounds());
+//   }
+//   map.setView([latitude, longitude]);
+// }
+
+// function containsOnlyAlphabets(cityName) {
+//   const regex = /^[a-zA-Z]+$/;
+//   if (regex.test(cityName)) {
+//     cityNameInput.style.backgroundColor = "green";
+//     return regex.test(inputString);
+//   } else {
+//     cityNameInput.style.backgroundColor = "red";
+//     return;
+//   }
+// }\
+
+// Leaflet map setup
 var map = L.map("map").setView([18.5204, 73.8567], 13);
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
@@ -283,35 +366,54 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
-navigator.geolocation.watchPosition(success, error);
+// Initialize marker and circle variables
 let marker, circle, zoomed;
-function success(pos) {
-  const lat = pos.coords.latitude;
-  const lng = pos.coords.longitude;
-  const accuracy = pos.coords.accuracy;
-  marker = L.marker([lat, lng]).addTo(map);
 
-  circle = L.circle([lat, lng], {
-    color: "red",
-    fillColor: "#f03",
-    fillOpacity: 0.5,
-    radius: 500,
-  }).addTo(map);
-  // if (marker) {
-  //   map.removeLayer(marker);
-  //   map.removeLayer(circle);
-  // }
-  // marker = L.marker([lat, lng]).addTo(map);
-  // circle = L.circle([lat, lng], { radius: accuracy }).addTo(map);
-  // if (!zoomed) {
-  //   zoomed = map.fitBounds(circle.getBounds());
-  // }
-  // map.setView([lat, lng]);
+// Function to update the map with latitude and longitude
+function updateMapWithLatLong(latitude, longitude) {
+  if (marker) {
+    map.removeLayer(marker);
+    map.removeLayer(circle);
+  }
+  marker = L.marker([latitude, longitude]).addTo(map);
+  circle = L.circle([latitude, longitude], { radius: 100 }).addTo(map); // Adjust the radius as needed
+  if (!zoomed) {
+    zoomed = map.fitBounds(circle.getBounds());
+  }
+  map.setView([latitude, longitude]);
 }
-function error(err) {
-  if (err.code === 1) {
-    alert("Please allow Geolocation access");
-  } else {
-    alert("Cannot get current location");
+
+// Function to handle the geocoding request
+async function geocodePlace(placeName) {
+  const geocodingAPIKey = "598b1071f36b4783931ec9aabe7fc66d"; // Replace with your API key
+  const geocodingAPIUrl = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(
+    placeName
+  )}&key=${geocodingAPIKey}`;
+
+  try {
+    const response = await fetch(geocodingAPIUrl);
+    const data = await response.json();
+    if (data.results && data.results.length > 0) {
+      const location = data.results[0].geometry;
+      const latitude = location.lat;
+      const longitude = location.lng;
+      url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relativehumidity_2m,dewpoint_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,weathercode,pressure_msl,surface_pressure,cloudcover,cloudcover_low,cloudcover_mid,cloudcover_high,visibility,evapotranspiration,et0_fao_evapotranspiration,vapor_pressure_deficit,windspeed_10m,windspeed_80m,windspeed_120m,windspeed_180m,winddirection_10m,winddirection_80m,winddirection_120m,winddirection_180m,windgusts_10m,temperature_80m,temperature_120m,temperature_180m,uv_index,uv_index_clear_sky,is_day,freezinglevel_height&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,uv_index_max,uv_index_clear_sky_max,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max,windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant,shortwave_radiation_sum,et0_fao_evapotranspiration&timezone=auto`;
+      weatherApi(url);
+      updateMapWithLatLong(latitude, longitude);
+    } else {
+      console.error("Geocoding API request failed");
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
   }
 }
+
+// Event listener for the search button
+const searchButton = document.getElementById("search-button");
+const searchInput = document.getElementById("search-bar");
+
+searchButton.addEventListener("click", () => {
+  const placeName = searchInput.value;
+  console.log(placeName);
+  geocodePlace(placeName);
+});
