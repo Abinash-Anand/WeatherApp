@@ -2,6 +2,7 @@
 //---------------------------------------Html Elements----------------------------------------
 const currentTime = document.querySelector(".current-time");
 const currentTemperature = document.querySelector(".current-temperature");
+const background = document.querySelector(".background").style;
 
 //getting all the sub updating weather elements
 const moisture = document.querySelector("#moisture");
