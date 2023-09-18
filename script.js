@@ -262,10 +262,10 @@ async function weatherApi() {
   }
 }
 weatherApi();
-// const intervalTime = 60 * 60 * 1000;
-// setInterval(function () {
-//   intervalTime();
-// }, intervalTime);
+const intervalTime = 60 * 60 * 1000;
+setInterval(function () {
+  intervalTime();
+}, intervalTime);
 
 //-------------------------GeoCoding------------------------------------------------------------
 
