@@ -413,11 +413,14 @@ span{
         html{
             font-style: 35%;
         }
+        body{
+            overflow-x: hidden;
+        }
         .left-navbar{
             display: none;
         }
         .weather{
-         
+         overflow-x: hidden;
             width: 27rem;
             height: 60rem;
             margin: 30px;
@@ -565,5 +568,8 @@ span{
     }
     .current-time{
         font-size: 2rem ;
+    }
+    section{
+        height: 70vh;
     }
 }
