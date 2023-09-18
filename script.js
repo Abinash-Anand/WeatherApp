@@ -262,10 +262,6 @@ async function weatherApi() {
   }
 }
 weatherApi();
-const intervalTime = 60 * 60 * 1000;
-setInterval(function () {
-  intervalTime();
-}, intervalTime);
 
 //-------------------------GeoCoding------------------------------------------------------------
 
@@ -418,3 +414,9 @@ searchButton.addEventListener("click", () => {
   console.log(placeName);
   geocodePlace(placeName);
 });
+//set interval call back function 
+const intervalTime = 60 * 60 * 1000;
+setInterval(function () {
+  intervalTime();
+}, intervalTime);
+
