@@ -407,4 +407,163 @@ span{
 }
   }
   
-  
+  /* Media Query for screen width between 320px and 480px */
+@media (min-width: 320px) and (max-width: 480px) {
+        /* … */
+        html{
+            font-style: 35%;
+        }
+        .left-navbar{
+            display: none;
+        }
+        .weather{
+         
+            width: 27rem;
+            height: 63rem;
+            margin: 30px;
+          
+        }
+        #map{
+            height: 30rem;
+            margin: 0rem 2rem 1rem 2rem;
+    
+        }
+        .current-weather{
+            width: 25rem;
+            height: 22rem;
+            /* margin: 6rem 0rem 0rem 0rem; */
+            margin: 6rem 2rem 1rem 2rem;
+    
+        }
+        .forecast{
+            width: 25rem;
+            height: 18rem;
+            margin-top: 0px;
+            margin: 0rem 2rem 1rem 2rem;
+    
+        }
+        .cloud-middle{
+            display: none;
+        }
+        .cloud-right{
+            opacity: 0.7;
+            margin:70px 10px;
+        }
+        .cloud-left{
+            opacity: 1;
+            margin:0px;
+        }
+        .search-bar{
+            background-color: #8ea1bc;
+            height: 3rem;
+            width: 24rem;
+            margin: 10px 10px 5px 0px;
+            padding-left: 0px;
+            border-radius: 10px;
+            position: absolute;
+            left: 14%;
+            flex-wrap: wrap;
+            opacity: 80%;
+        }
+        .search-bar img {
+    
+            margin: 0.6rem 20rem 0.8rem 0rem;
+        }
+        #search-bar{
+            padding: 3px 3px 3px 40px;
+            
+            /* margin-top: 1px; */
+            
+        }
+        #search-container{
+            position: relative;
+            bottom  : 90%;
+            left: 10%;
+        }
+        #search-button{
+            font-size: 12px;
+            margin-bottom: 7px;
+            margin-left: 3px;
+            font-weight: 600;
+            
+        }
+        
+    .weather-updates {
+        margin: 20px 20px 1px 50px;
+        display: grid;
+        grid-template-columns: 70px 70px 70px 70px;
+    
+    }
+    
+    .sub-updates {
+        margin: 10px 10px 1px 10px;
+        text-align: center;
+    }
+    
+    #moisture {
+        margin-left: 0px;
+        margin-right: 50px;
+    }
+    
+    #precipitation {
+        margin-left: 12px;
+        margin-right: 100px;
+       
+    }
+    
+    #current-winds {
+        margin-left: 10px;
+    }
+    
+    #breeze {
+       margin-left: 0px;
+    }
+    
+    .forecast-first-child{
+        padding: 1rem;
+        font-size: 20px;
+        margin: 0rem 2rem;
+        word-spacing: 8rem;
+        color: white;
+        text-align: left;
+    }
+    
+    .forecast-data{
+        font-weight: 500;
+        text-align: center;
+        color: white;
+        margin-right: 35px;
+        margin-bottom: 5px;
+    }
+    .forecast-data .data, .min-temp, .week-forecast{
+        font-size: 18px;
+      font-weight: 100;
+      text-align: left;
+    }
+    .week-forecast{
+        margin-left: 50px;
+        /* margin-right: 0px !important; */
+    }
+    .data{
+        margin-left: 30px;
+        text-align: left;
+    }
+    
+    .forecast-icon{
+        margin-left:45px;
+        text-align: left;
+        /* margin-right: 100px; */
+    }
+    .current-day{
+        font-size: 2.5rem;
+    }
+    .current-temperature{
+        font-size: 4rem !important;
+        padding: 30px 30px 0px 30px;
+        
+        margin-bottom: 0px;
+    }
+    .current-time{
+        font-size: 2rem ;
+    }
+}
