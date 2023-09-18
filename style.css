@@ -419,7 +419,7 @@ span{
         .weather{
          
             width: 27rem;
-            height: 63rem;
+            height: 60rem;
             margin: 30px;
           
         }
@@ -437,7 +437,7 @@ span{
         }
         .forecast{
             width: 25rem;
-            height: 18rem;
+            height: 25rem;
             margin-top: 0px;
             margin: 0rem 2rem 1rem 2rem;
     
@@ -521,9 +521,9 @@ span{
     
     .forecast-first-child{
         padding: 1rem;
-        font-size: 20px;
-        margin: 0rem 2rem;
-        word-spacing: 8rem;
+        font-size: 30px;
+        margin: 0rem 1rem;
+        word-spacing: 5rem;
         color: white;
         text-align: left;
     }
@@ -533,12 +533,12 @@ span{
         text-align: center;
         color: white;
         margin-right: 35px;
-        margin-bottom: 5px;
+        margin-bottom: 15px;
     }
     .forecast-data .data, .min-temp, .week-forecast{
         font-size: 18px;
       font-weight: 100;
-      text-align: left;
+      /* text-align: left; */
     }
     .week-forecast{
         margin-left: 50px;
