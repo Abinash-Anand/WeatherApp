@@ -1,8 +1,8 @@
-# WeatherApp
-#Deployment <strong> GitHub</strong> <a href="https://abinash-anand.github.io/WeatherApp/">WeatherApp</a>
-
-#Deployment <strong> Netlify</strong> <a href="https://main--weatherappab.netlify.app/">WeatherApp</a>
 # Weather App
+## Deployment <strong> GitHub</strong> <a href="https://abinash-anand.github.io/WeatherApp/">WeatherApp</a>
+
+## Deployment <strong> Netlify</strong> <a href="https://main--weatherappab.netlify.app/">WeatherApp</a>
+
 ## Default 
 <img width="959" alt="weatherapp1" src="https://github.com/Abinash-Anand/WeatherApp/assets/74396889/482a058a-8b20-4bed-9271-9cf65ba267ea">
 
