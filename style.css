@@ -1,13 +1,16 @@
 body {
     background: linear-gradient(#337CCF, #116994);
     overflow-y: hidden;
+    /* background: url("/assets/weather1.svg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .weather {
-    background: linear-gradient(#1D5D9B, #084767);
+    background: linear-gradient(#000000, #084767);
 
     /* border: 1px solid #1450A3; */
-    box-shadow: 5px 5px 5px 5px #1450a36a;
+    box-shadow: 5px 5px 5px 5px #0404056a;
 
     border-radius: 1rem;
     height: 85vh;
@@ -44,7 +47,7 @@ body {
 
 .cloud-right {
     position: absolute;
-    left: 90%;
+    left: 80%;
     top: 1%;
     width: 120px;
     filter: drop-shadow(10px 15px 6px #282828);
@@ -414,12 +417,18 @@ span{
     html{
         font-style: 45%;
     }
+    body{
+        background: url("/assets/weather1.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     .left-navbar{
         display: none;
     }
     .weather{
         text-align: center;
         justify-content: center;
+        
     }
     #map{
         height: 22rem;
@@ -430,6 +439,7 @@ span{
         width: 25rem;
         /* margin: 6rem 0rem 0rem 0rem; */
         margin: 6rem 2rem 1rem 2rem;
+        
 
     }
     .forecast{
@@ -451,6 +461,7 @@ span{
         border-radius: 10px;
         position: absolute;
         left: 25%;
+        top: 5%;
         flex-wrap: wrap;
         opacity: 80%;
     }
@@ -557,12 +568,14 @@ span{
             width: 27rem;
             height: 50rem;
             margin: 30px;
-          
+            /* background: url("/assets/weather.svg"); */
+            /* background-repeat: no-repeat;
+            background-size: cover; */
         }
         #map{
             height: 40rem;
             margin: 0rem 2rem 1rem 2rem;
-    
+            opacity: 1;
         }
         .current-weather{
             width: 25rem;
@@ -582,11 +595,12 @@ span{
             display: none;
         }
         .cloud-right{
-            opacity: 0.7;
-            margin:70px 10px;
+
+            opacity: 0;
+            margin:70px 40px;
         }
         .cloud-left{
-            opacity: 1;
+            opacity: 0;
             margin:0px;
         }
         .search-bar{

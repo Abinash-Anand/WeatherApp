@@ -3,7 +3,7 @@
 const currentTime = document.querySelector(".current-time");
 const currentTemperature = document.querySelector(".current-temperature");
 const background = document.querySelector(".background").style;
-
+const weather = document.querySelector(".weather");
 //getting all the sub updating weather elements
 const moisture = document.querySelector("#moisture");
 const precipitationToday = document.querySelector("#precipitation");
@@ -19,6 +19,7 @@ const minTempData = document.querySelectorAll(".min-temp");
 const dateElement = document.querySelectorAll(".date");
 const weekForecastData = document.querySelectorAll(".week-forecast");
 // document.body.style.background = url("/rainyBackground.gif");
+const bodyElement = document.querySelector("body");
 
 const weatherIcon = document.querySelectorAll(".forecast-icon");
 // console.log(weatherIcon);
@@ -92,6 +93,8 @@ const timeObject = {
 };
 const formattedTime = time.toLocaleTimeString(undefined, timeObject);
 
+//-------------------Background change according to time--------------
+// const backgorundEffect = function (time24hourList) {};
 //------------------- Week days array--------------------
 
 const months = [
@@ -165,13 +168,22 @@ async function weatherApi() {
     hourlyTemperature.forEach((temp, index) => {
       if (currentHour === time24hourList[index]) {
         console.log(`currentHour === time24hourList`);
-        // console.log(
-        //   `The temperature ${temp}°C was found at time ${time.toLocaleTimeString()} `
-        // );
         currentTime.innerHTML = formattedTime;
         currentTemperature.innerHTML = `${Math.floor(temp)}°C`;
       }
+
+      if (time24hourList[index] <= 6 && time24hourList[index] > 12) {
+        bodyElement.style.backgroundImage = 'url("/assets/weather2.svg")';
+      } else if (time24hourList[index] >= 12 && time24hourList[index] < 18) {
+        // bodyElement.style.backgroundImage = 'url("/assets/rainyday.jpg")';
+        // bodyElement.style.transition = ".2s 0.4s ease-in-out";
+      } else if (time24hourList[index] >= 18) {
+        console.log(time24hourList[index]);
+        bodyElement.style.backgroundImage = 'url("/assets/rainyday.jpg")';
+      }
     });
+
+    //calling backgorundEffect()
 
     console.log(weatherData.daily.precipitation_sum);
 
@@ -262,6 +274,10 @@ async function weatherApi() {
   }
 }
 weatherApi();
+const intervalTime = 60 * 60 * 1000;
+setInterval(function () {
+  intervalTime();
+}, intervalTime);
 
 //-------------------------GeoCoding------------------------------------------------------------
 
@@ -414,9 +430,3 @@ searchButton.addEventListener("click", () => {
   console.log(placeName);
   geocodePlace(placeName);
 });
-//set interval call back function 
-const intervalTime = 60 * 60 * 1000;
-setInterval(function () {
-  intervalTime();
-}, intervalTime);
-
