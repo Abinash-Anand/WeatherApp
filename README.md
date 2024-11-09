@@ -1,5 +1,5 @@
 # Weather App
-## Deployment <strong> GitHub</strong> <a href="https://abinash-anand.github.io/WeatherApp/">WeatherApp</a>
+
 
 ## Deployment <strong> Netlify</strong> <a href="https://main--weatherappab.netlify.app/">WeatherApp</a>
 
