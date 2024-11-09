@@ -3,6 +3,7 @@ body {
     background: linear-gradient(135deg, #c3e6ff, #e2f3ff);
     /* Light sky gradient */
     color: #333;
+    overflow-x: hidden;
 }
 .weather-parameters > span{
     color: whitesmoke;
