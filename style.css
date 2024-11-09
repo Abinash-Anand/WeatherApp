@@ -164,6 +164,12 @@ h1 {
         margin-bottom: 1rem;
     }
 }
+@media (max-width: 406px) {
+
+   h1{
+    font-size: 1rem !important;
+   }
+}
 
 /* General styling */
 body {
