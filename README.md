@@ -1,7 +1,9 @@
 # Weather App
 
 
-## Deployment <strong> Netlify</strong> <a href="https://main--weatherappab.netlify.app/">WeatherApp</a>
+## Deployment <strong> Netlify</strong> <a href="https://abcloudcompass.netlify.app/">WeatherApp</a>
+## Updated UI Design Nov 10th, 2024
+![Screenshot (259)](https://github.com/user-attachments/assets/70b7e42f-668e-4572-bccd-452805018014)
 
 ## Default 
 <img width="959" alt="weatherapp1" src="https://github.com/Abinash-Anand/WeatherApp/assets/74396889/482a058a-8b20-4bed-9271-9cf65ba267ea">
