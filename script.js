@@ -398,7 +398,7 @@ function updateMapWithLatLong(latitude, longitude) {
 
 // Function to handle the geocoding request
 async function geocodePlace(placeName) {
-  const geocodingAPIKey = "598b1071f36b4783931ec9aabe7fc66d"; // Replace with your API key
+  const geocodingAPIKey = "6d43007eb4f943e494f28ce54e1591c3"; // Replace with your API key
   const geocodingAPIUrl = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(
     placeName
   )}&key=${geocodingAPIKey}`;
