@@ -179,7 +179,7 @@ async function weatherApi() {
         // bodyElement.style.transition = ".2s 0.4s ease-in-out";
       } else if (time24hourList[index] >= 18) {
         console.log(time24hourList[index]);
-        bodyElement.style.backgroundImage = 'url("/assets/rainyday.jpg")';
+        // bodyElement.style.backgroundImage = 'url("/assets/rainyday.jpg")';
       }
     });
 
