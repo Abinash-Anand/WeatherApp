@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>CloudCompass</title>
     <!--Leaflet css-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -19,8 +19,159 @@
 </head>
 
 <body>
+    <div class="container background  mt-5 p-4  shadow-lg bg-white ">
+        <h1 style="text-align: center;">CloudCompass</h1>
+        <!-- Search Row -->
+        <div class="row mb-4 ">
+            <div class="col text-center">
+                <div id="search-container" class="input-group">
+                    <input type="text" id="search-bar" class="form-control " placeholder="Enter a location" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" id="search-button">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="row">
+                <!-- Sidebar Navbar -->
+                <div class="col-md-1 d-flex flex-column align-items-center py-3 bg-light border-right">
+                    <img class="nav-icons mb-4" width="32" height="32" src="https://img.icons8.com/windows/32/huawei-logo.png"
+                        alt="huawei-logo" />
+                    <img class="nav-icons mb-4" width="32" height="32" src="https://img.icons8.com/windows/32/temperature-high.png"
+                        alt="temperature-high" />
+                    <img class="nav-icons mb-4" width="32" height="32" src="https://img.icons8.com/glyph-neue/64/map.png"
+                        alt="map" />
+                    <img class="nav-icons mb-4" width="32" height="32" src="https://img.icons8.com/metro/52/chance-of-storm.png"
+                        alt="chance-of-storm" />
+                    <img class="log-out mt-auto mb-4" width="32" height="32"
+                        src="https://img.icons8.com/windows/32/logout-rounded-left.png" alt="logout-rounded-left" />
+                </div>
+            <div class="col-3 col-md-3 p-3 bg-primary text-white rounded p-4 shadow-sm text-center">
+                <!------------Current Weather------------------->
+                <div class="current-weather ">
+                    <p class="current-day">Current Weather</p>
+                    <p class="current-time">Time</p>
+                    <div class="d-flex align-items-center justify-content-center my-3"><span><img width="64" height="64" src="https://img.icons8.com/cute-clipart/64/partly-cloudy-day.png"
+                                alt="partly-cloudy-day" /></span><span class="current-temperature display-4 ml-3"></span></div>
+                    <div class="weather-updates d-flex justify-content-between mt-4">
+                        <img class="sub-updates" id="breeze" width="25" height="25" src="https://img.icons8.com/ios/50/moisture.png"
+                            alt="moisture" />
+                        <img class="sub-updates" width="25" height="25"
+                            src="https://img.icons8.com/external-microdots-premium-microdot-graphic/64/external-precipitation-weather-forecast-microdots-premium-microdot-graphic-2.png"
+                            alt="external-precipitation-weather-forecast-microdots-premium-microdot-graphic-2" />
+                        <img class="sub-updates" width="25" height="25"
+                            src="https://img.icons8.com/external-prettycons-flat-prettycons/47/external-wind-weather-prettycons-flat-prettycons.png"
+                            alt="external-wind-weather-prettycons-flat-prettycons" />
+                        <img class="sub-updates" width="25" height="25" src="https://img.icons8.com/sf-regular/48/sun.png" alt="sun" />
+                        <span class="sub-updates" id="moisture">
+                        </span>
+                        <span class="sub-updates" id="precipitation">
+                        </span>
+                        <span class="sub-updates" id="current-winds">
+                        </span>
+                        <span class="sub-updates" id="visibility">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 p-3 ">
+                <div class="map col-12 bg-secondary rounded shadow-sm"  style="height: 300px;" id="map" >
+                     </div>
+            </div>
+            
+            </div>
+            <div class="row">
+                <div class="col-1">
 
-    <section class="background">
+                </div>
+
+                <div class="col-11 ">
+                    <div class="col-12  p-3 bg-dark mt-4 text-light weekly-forcast ">
+                        <div class="row forecast-first-child d-flex justify-content-between mb-3">
+                            <div class="col-6"><span>Forecast</span></div>
+                            <div class="col-6 "><span>7Days</span></div>
+                        </div>
+                        <div class="forecast bg-dark text-white rounded p-4 shadow-sm">
+                          
+                    
+                            <div class="forecast-second-child  d-flex flex-wrap justify-content-between">
+                    
+                                <div class="forecast-data  col-1">
+                                    <img src="" class="forecast-icon" height="60vw">
+                                    <span class="data"></span>
+                                    <span class="min-temp"></span>
+                                    <span class="week-forecast"></span>
+                                </div>
+                                <div class="forecast-data col-1">
+                                    <img src="" class="forecast-icon" height="60vw">
+                                    <span class="data"></span>
+                                    <span class="min-temp"></span>
+                                    <span class="week-forecast"></span>
+                                </div>
+                                <div class="forecast-data col-1">
+                                    <img src="" class="forecast-icon" height="60vw">
+                                    <span class="data"></span>
+                                    <span class="min-temp"></span>
+                                    <span class="week-forecast"></span>
+                                </div>
+                                <div class="forecast-data col-1">
+                                    <img src="" class="forecast-icon" height="60vw">
+                                    <span class="data"></span>
+                                    <span class="min-temp"></span>
+                                    <span class="week-forecast"></span>
+                                </div>
+                                <div class="forecast-data col-1">
+                                    <img src="" class="forecast-icon" height="60vw">
+                                    <span class="data"></span>
+                                    <span class="min-temp"></span>
+                                    <span class="week-forecast"></span>
+                                </div>
+                                <div class="forecast-data col-1">
+                                    <img src="" class="forecast-icon" height="60vw">
+                                    <span class="data"></span>
+                                    <span class="min-temp"></span>
+                                    <span class="week-forecast"></span>
+                                </div>
+                                <div class="forecast-data col-1">
+                                    <img src="" class="forecast-icon" height="60vw">
+                                    <span class="data"></span>
+                                    <span class="min-temp"></span>
+                                    <span class="week-forecast"></span>
+                                </div>
+                            </div>
+                    
+                    
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--------------------------------------------------------------------------------------------------------------------->
+
+    
+<!----------------------------------------------------------------------------------End------------------------------------>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section >
 
         <!--Bootstrap search form-->
 
@@ -28,66 +179,32 @@
 
         <!---Weather app layout--><img class="cloud-left" width="96" height="96"
             src="https://img.icons8.com/fluency/96/clouds--v3.png" alt="clouds--v3" />
-        <div class="weather"> <img class="cloud-middle" width="96" height="96"
-                src="https://img.icons8.com/fluency/96/clouds--v3.png" alt="clouds--v3" /> <img class="cloud-right"
-                width="96" height="96" src="https://img.icons8.com/fluency/96/clouds--v3.png" alt="clouds--v3" />
-            <div class="search-bar">
+            
+        <div class="weather"> 
+            <img class="cloud-middle" width="96" height="96"
+                src="https://img.icons8.com/fluency/96/clouds--v3.png" alt="clouds--v3" /> 
+                <img class="cloud-right" width="96" height="96" src="https://img.icons8.com/fluency/96/clouds--v3.png" alt="clouds--v3" />
+            
+                <div class="search-bar">
+
                 <img width="30" height="30" src="https://img.icons8.com/ios-filled/50/000000/search--v1.png"
                     alt="search--v1" />
+
+
+                    
 
                 <!-------------Search form-------->
                 <!-- <form id="search-form"> <input type="text" id="search-bar" placeholder="Search for location">
                     <button class="btn btn-search" type="submit">Search</button>
                 </form> -->
-                <div id="search-container">
-                    <input type="text" id="search-bar" placeholder="Enter a location" />
-                    <button class="btn" id="search-button">Search</button>
-                </div>
+               
 
                 <!-- <label class="search-label" for="search"> </label> -->
 
             </div>
-            <div class="left-navbar">
-                <img class="nav-icons" width="32" height="32" src="https://img.icons8.com/windows/32/huawei-logo.png"
-                    alt="huawei-logo" />
-                <img class="nav-icons" width="32" height="32"
-                    src="https://img.icons8.com/windows/32/temperature-high.png" alt="temperature-high" />
-                <img class="nav-icons" width="32" height="32" src="https://img.icons8.com/glyph-neue/64/map.png"
-                    alt="map" />
-                <img class="nav-icons" width="32" height="32" src="https://img.icons8.com/metro/52/chance-of-storm.png"
-                    alt="chance-of-storm" />
-                <img class="log-out" width="32" height="32"
-                    src="https://img.icons8.com/windows/32/logout-rounded-left.png" alt="logout-rounded-left" />
-            </div>
-            <!------------Current Weather------------------->
-            <div class="current-weather">
-                <p class="current-day">Current Weather</p>
-                <p class="current-time">Time</p>
-                <div><span><img width="64" height="64"
-                            src="https://img.icons8.com/cute-clipart/64/partly-cloudy-day.png"
-                            alt="partly-cloudy-day" /></span><span class="current-temperature"></span></div>
-                <div class="weather-updates">
-                    <img class="sub-updates" id="breeze" width="25" height="25"
-                        src="https://img.icons8.com/ios/50/moisture.png" alt="moisture" />
-                    <img class="sub-updates" width="25" height="25"
-                        src="https://img.icons8.com/external-microdots-premium-microdot-graphic/64/external-precipitation-weather-forecast-microdots-premium-microdot-graphic-2.png"
-                        alt="external-precipitation-weather-forecast-microdots-premium-microdot-graphic-2" />
-                    <img class="sub-updates" width="25" height="25"
-                        src="https://img.icons8.com/external-prettycons-flat-prettycons/47/external-wind-weather-prettycons-flat-prettycons.png"
-                        alt="external-wind-weather-prettycons-flat-prettycons" />
-                    <img class="sub-updates" width="25" height="25" src="https://img.icons8.com/sf-regular/48/sun.png"
-                        alt="sun" />
-                    <span class="sub-updates" id="moisture">
-                    </span>
-                    <span class="sub-updates" id="precipitation">
-                    </span>
-                    <span class="sub-updates" id="current-winds">
-                    </span>
-                    <span class="sub-updates" id="visibility">
-                    </span>
-                </div>
-            </div>
-            <div class="map" id="map"> </div>
+           
+           
+           
 
 
             <!-- <div class="cities"></div> -->
@@ -112,53 +229,7 @@
 
 
 
-            <div class="forecast">
-                <div class="forecast-first-child">
-                    <span>Forecast</span>
-                    <span>7Days</span>
-                </div>
-
-                <div class="forecast-second-child">
-
-                    <div class="forecast-data"><img src="" class="forecast-icon" height="20px">
-                        <span class="data"></span>
-                        <span class="min-temp"></span>
-                        <span class="week-forecast"></span>
-                    </div>
-                    <div class="forecast-data"><img src="" class="forecast-icon" height="20px">
-                        <span class="data"></span>
-                        <span class="min-temp"></span>
-                        <span class="week-forecast"></span>
-                    </div>
-                    <div class="forecast-data"><img src="" class="forecast-icon" height="20px">
-                        <span class="data"></span>
-                        <span class="min-temp"></span>
-                        <span class="week-forecast"></span>
-                    </div>
-                    <div class="forecast-data"><img src="" class="forecast-icon" height="20px">
-                        <span class="data"></span>
-                        <span class="min-temp"></span>
-                        <span class="week-forecast"></span>
-                    </div>
-                    <div class="forecast-data"><img src="" class="forecast-icon" height="20px">
-                        <span class="data"></span>
-                        <span class="min-temp"></span>
-                        <span class="week-forecast"></span>
-                    </div>
-                    <div class="forecast-data"><img src="" class="forecast-icon" height="20px">
-                        <span class="data"></span>
-                        <span class="min-temp"></span>
-                        <span class="week-forecast"></span>
-                    </div>
-                    <div class="forecast-data"><img src="" class="forecast-icon" height="20px">
-                        <span class="data"></span>
-                        <span class="min-temp"></span>
-                        <span class="week-forecast"></span>
-                    </div>
-                </div>
-
-
-            </div>
+          
             <!-- <div class="weather-summary"></div> -->
         </div>
     </section>
